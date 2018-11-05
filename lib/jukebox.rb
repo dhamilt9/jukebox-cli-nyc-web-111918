@@ -27,7 +27,7 @@ end
 def play(songs)
   puts "Please enter a song name or number:"
   selectedsong = gets.chomp
-  for songs.each_with_index do |value, index|
+  songs.each_with_index do |value, index|
     if value.includes?(selectedsong) || selectedsong-1==index
       puts "Playing #{value}"
     else
