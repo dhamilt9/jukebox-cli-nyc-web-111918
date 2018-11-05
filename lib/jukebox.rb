@@ -23,3 +23,38 @@ def list(songs)
     puts "#{index+1}. #{value}"
   end
 end
+
+def play(songs)
+  puts "Please enter a song name or number:"
+  selectedsong = gets.chomp
+  for songs.each_with_index do |value, index|
+    if value.includes?(selectedsong) || selectedsong-1==index
+      puts "Playing #{value}"
+    else
+      puts "Invalid input, please try again"
+    end
+end
+
+def exit_jukebox
+  puts "Goodbye"
+end
+
+def run
+  help()
+  exitbool=false
+  while exitbool==false
+    puts "Please enter a command:"
+    command=gets.chomp
+    case command
+    when "help"
+      help()
+    when "list"
+      list()
+    when "play"
+      play()
+    when "exit"
+      exit_jukebox()
+      exitbool=true
+    end
+  end
+end
